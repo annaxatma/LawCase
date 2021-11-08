@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Types;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 
 class TypesController extends Controller
 {
@@ -17,7 +17,8 @@ class TypesController extends Controller
     public function index()
     {
         $title = "Crime Types";
-        $types = types::paginate(4);
+        $types = types::paginate(6);
+        Paginator::useBootstrap();
 
         return view('crimeType', compact('title', 'types'));
     }

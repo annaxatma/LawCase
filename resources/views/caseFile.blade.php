@@ -50,6 +50,10 @@
         @endforeach
         </tbody>
     </table>
+
+    <div class="justify-content-center d-flex">
+        <ul class="pagination"><li class="page-item d-inline">{{ $files->links() }}</li></ul>
+    </div>
 @endsection
 
 @section('footer')

@@ -38,8 +38,8 @@
         @endforeach
     </table>
 
-    <div class="justify-content-center">
-        {{ $types->links() }}
+    <div class="justify-content-center d-flex">
+        <ul class="pagination"><li class="page-item d-inline">{{ $types->links() }}</li></ul>
     </div>
 @endsection
 

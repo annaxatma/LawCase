@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Files;
 use App\Models\Types;
 use Illuminate\Support\Str;
+use Illuminate\Pagination\Paginator;
 
 class FilesController extends Controller
 {
@@ -17,7 +18,8 @@ class FilesController extends Controller
     public function index()
     {
         $title = "Case Files";
-        $files = files::all();
+        $files = files::paginate(6);
+        Paginator::useBootstrap();
         $types = types::all();
 
         return view('caseFile', compact('title', 'files', 'types'));
